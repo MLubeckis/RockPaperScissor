@@ -1,8 +1,7 @@
 function gameRockPaperScissors() {
     
-    function getPlayerChoice() {
-        let playerChoice;
-        return playerChoice = prompt("Enter: Rock, Paper or Scissors", "Rock");
+    function getPlayerChoice(playerChoice) {
+        return playerChoice;
     }
 
     function getComputerChoice() {
@@ -23,6 +22,29 @@ function gameRockPaperScissors() {
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
 
+      //event listener for buttons inputs
+      const rpsChoice = document.querySelector("#rps-choices");
+
+      rpsChoice.addEventListener('click', (event) => {
+        let target = event.target;
+            switch(target.id) {
+                case 'rock':{
+                        return getPlayerChoice(target.id);
+                    break;
+                }
+                case 'papper':{
+                    return getPlayerChoice(target.id);
+                break;
+            }
+                case 'scissors':{
+                    return getPlayerChoice(target.id);
+                break;
+            }
+                default:
+                    break;
+            }
+      })
+
 
 
 
@@ -41,7 +63,7 @@ function gameRockPaperScissors() {
       let playerWinCount = 0;
       let computerWinCount = 0;
 
-      for (let i = 0; i < 5; i++) {
+      //for (let i = 0; i < 5; i++) {
         const playerChoice = getPlayerChoice().toLowerCase();
         const computerChoice = getComputerChoice().toLowerCase();
         console.log("Player draws: " + playerChoice);
@@ -53,7 +75,7 @@ function gameRockPaperScissors() {
             computerWinCount = ++computerWinCount;
         }
         console.log(`${roundWinner}\nPlayer has: ${playerWinCount} wins\nComputer has: ${computerWinCount} wins`);
-      }
+      //}
       let winner = "TIE";
 
       if (playerWinCount > computerWinCount){
@@ -69,4 +91,4 @@ function gameRockPaperScissors() {
     //   console.log(playRound(playerChoice, computerChoice));
 }
 
-gameRockPaperScissors();
+//gameRockPaperScissors();
